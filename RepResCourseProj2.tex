@@ -1,0 +1,465 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Top Natural Disaster Events in terms of Economic and Population Health Damages in the United States from 1950 to 2011},
+            pdfauthor={Gerald Del Norte},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Top Natural Disaster Events in terms of Economic and Population Health
+Damages in the United States from 1950 to 2011}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Gerald Del Norte}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{February 9, 2019}
+
+
+\begin{document}
+\maketitle
+
+\section{Top Natural Disaster Events in terms of Economic and Population
+Health Damages in the United States from 1950 to
+2011}\label{top-natural-disaster-events-in-terms-of-economic-and-population-health-damages-in-the-united-states-from-1950-to-2011}
+
+\subsection{Synopsis}\label{synopsis}
+
+Storms and other severe weather events can cause both public health and
+economic problems for communities and municipalities. Many severe events
+can result in fatalities, injuries, and property damage, and preventing
+such outcomes to the extent possible is a key concern.
+
+This document involves exploring the U.S. National Oceanic and
+Atmospheric Administration's (NOAA) storm database. This database tracks
+characteristics of major storms and weather events in the United States,
+including when and where they occur, as well as estimates of any
+fatalities, injuries, and property damage.
+
+\subsection{Data Processing (Downloading, Loading and Cleaning
+Data)}\label{data-processing-downloading-loading-and-cleaning-data}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## installs and loads packages(if not yet installed)}
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(png))\{}
+  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"png"}\NormalTok{)}
+  \KeywordTok{library}\NormalTok{(png)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: png
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(plyr))\{}
+  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"plyr"}\NormalTok{)}
+  \KeywordTok{library}\NormalTok{(plyr)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: plyr
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(dplyr))\{}
+  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+  \KeywordTok{library}\NormalTok{(dplyr)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: dplyr
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:plyr':
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(lattice))\{}
+  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"lattice"}\NormalTok{)}
+  \KeywordTok{library}\NormalTok{(lattice)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(png)}
+\KeywordTok{library}\NormalTok{(plyr)}
+\KeywordTok{library}\NormalTok{(dplyr)}
+\KeywordTok{library}\NormalTok{(lattice) }
+
+\NormalTok{### Downloads the source file if it is not in the current working directory, proceeds if it is }
+
+\NormalTok{destfilebz2 =}\StringTok{ "./repdata_data_StormData.csv.bz2"}
+\NormalTok{fileURL <-}\StringTok{ "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2"}
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{file.exists}\NormalTok{(destfilebz2))\{}
+  \KeywordTok{download.file}\NormalTok{(fileURL, }\DataTypeTok{destfile=}\StringTok{"./repdata_data_StormData.csv.bz2"}\NormalTok{, }\DataTypeTok{method=}\StringTok{"auto"}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{#Reads and cleans data}
+  
+\NormalTok{stormx <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"./repdata_data_StormData.csv.bz2"}\NormalTok{)}
+  
+\NormalTok{Statelist<-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"AK"}\NormalTok{,}\StringTok{"AL"}\NormalTok{,}\StringTok{"AR"}\NormalTok{,}\StringTok{"AZ"}\NormalTok{,}\StringTok{"CA"}\NormalTok{,}\StringTok{"CO"}\NormalTok{,}\StringTok{"CT"}\NormalTok{,}\StringTok{"DC"}\NormalTok{,}\StringTok{"DE"}\NormalTok{,}\StringTok{"FL"}\NormalTok{,}\StringTok{"GA"}\NormalTok{,}\StringTok{"GU"}\NormalTok{,}\StringTok{"HI"}\NormalTok{,}\StringTok{"IA"}\NormalTok{,}\StringTok{"ID"}\NormalTok{, }\StringTok{"IL"}\NormalTok{,}\StringTok{"IN"}\NormalTok{,}\StringTok{"KS"}\NormalTok{,}\StringTok{"KY"}\NormalTok{,}\StringTok{"LA"}\NormalTok{,}\StringTok{"MA"}\NormalTok{,}\StringTok{"MD"}\NormalTok{,}\StringTok{"ME"}\NormalTok{,}\StringTok{"MH"}\NormalTok{,}\StringTok{"MI"}\NormalTok{,}\StringTok{"MN"}\NormalTok{,}\StringTok{"MO"}\NormalTok{,}\StringTok{"MS"}\NormalTok{,}\StringTok{"MT"}\NormalTok{,}\StringTok{"NC"}\NormalTok{,}\StringTok{"ND"}\NormalTok{,}\StringTok{"NE"}\NormalTok{,}\StringTok{"NH"}\NormalTok{,}\StringTok{"NJ"}\NormalTok{,}\StringTok{"NM"}\NormalTok{,}\StringTok{"NV"}\NormalTok{,}\StringTok{"NY"}\NormalTok{, }\StringTok{"OH"}\NormalTok{,}\StringTok{"OK"}\NormalTok{,}\StringTok{"OR"}\NormalTok{,}\StringTok{"PA"}\NormalTok{,}\StringTok{"PR"}\NormalTok{,}\StringTok{"PW"}\NormalTok{,}\StringTok{"RI"}\NormalTok{,}\StringTok{"SC"}\NormalTok{,}\StringTok{"SD"}\NormalTok{,}\StringTok{"TN"}\NormalTok{,}\StringTok{"TX"}\NormalTok{,}\StringTok{"UT"}\NormalTok{,}\StringTok{"VA"}\NormalTok{,}\StringTok{"VI"}\NormalTok{,}\StringTok{"VT"}\NormalTok{,}\StringTok{"WA"}\NormalTok{,}\StringTok{"WI"}\NormalTok{,}\StringTok{"WV"}\NormalTok{,}\StringTok{"WY"}\NormalTok{)}
+
+\CommentTok{#Removes unrelated rows by only retaining the rows that have state in the STATE column.}
+
+\NormalTok{storm <-}\StringTok{ }\NormalTok{stormx[ stormx}\OperatorTok{$}\NormalTok{STATE }\OperatorTok{%in%}\StringTok{ }\NormalTok{Statelist,]}
+
+\CommentTok{#Removes columns not needed for this analysis}
+
+\NormalTok{storm <-}\StringTok{ }\KeywordTok{select}\NormalTok{(storm, EVTYPE, FATALITIES, INJURIES, PROPDMG, PROPDMGEXP, CROPDMG, CROPDMGEXP)}
+
+
+\CommentTok{#This next section substitutes values on the PROPDMGEXP and CROPDMG EXP to make them numerical, source of information is from https://rpubs.com/flyingdisc/PROPDMGEXP}
+
+
+\CommentTok{#creates a backup csv file and reads the file with strings as characters}
+\KeywordTok{write.csv}\NormalTok{(storm,}\StringTok{'storm.csv'}\NormalTok{)}
+\NormalTok{storm<-}\KeywordTok{read.csv}\NormalTok{(}\StringTok{"storm.csv"}\NormalTok{,}\DataTypeTok{row.names=}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{)}
+
+
+\NormalTok{##creates replacement dataframe for PROPDMGEXP and CROPDMGEXP}
+\NormalTok{PROPDMGEXP =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{,}\StringTok{"h"}\NormalTok{,}\StringTok{"K"}\NormalTok{,}\StringTok{"k"}\NormalTok{,}\StringTok{"M"}\NormalTok{,}\StringTok{"m"}\NormalTok{,}\StringTok{"B"}\NormalTok{,}\StringTok{"b"}\NormalTok{,}\StringTok{"+"}\NormalTok{,}\StringTok{"-"}\NormalTok{,}\StringTok{"?"}\NormalTok{,}\StringTok{"1"}\NormalTok{,}\StringTok{"2"}\NormalTok{,}\StringTok{"3"}\NormalTok{,}\StringTok{"4"}\NormalTok{,}\StringTok{"5"}\NormalTok{,}\StringTok{"6"}\NormalTok{,}\StringTok{"7"}\NormalTok{,}\StringTok{"8"}\NormalTok{,}\StringTok{"0"}\NormalTok{,}\StringTok{""}\NormalTok{) }
+\NormalTok{PROPREPVAL =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"100"}\NormalTok{,}\StringTok{"100"}\NormalTok{,}\StringTok{"1000"}\NormalTok{,}\StringTok{"1000"}\NormalTok{,}\StringTok{"1000000"}\NormalTok{,}\StringTok{"1000000"}\NormalTok{,}\StringTok{"1000000000"}\NormalTok{,}\StringTok{"1000000000"}\NormalTok{,}\StringTok{"1"}\NormalTok{,}\StringTok{"0"}\NormalTok{,}\StringTok{"0"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"0"}\NormalTok{)}
+
+\NormalTok{CROPDMGEXP =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"H"}\NormalTok{,}\StringTok{"h"}\NormalTok{,}\StringTok{"K"}\NormalTok{,}\StringTok{"k"}\NormalTok{,}\StringTok{"M"}\NormalTok{,}\StringTok{"m"}\NormalTok{,}\StringTok{"B"}\NormalTok{,}\StringTok{"b"}\NormalTok{,}\StringTok{"+"}\NormalTok{,}\StringTok{"-"}\NormalTok{,}\StringTok{"?"}\NormalTok{,}\StringTok{"1"}\NormalTok{,}\StringTok{"2"}\NormalTok{,}\StringTok{"3"}\NormalTok{,}\StringTok{"4"}\NormalTok{,}\StringTok{"5"}\NormalTok{,}\StringTok{"6"}\NormalTok{,}\StringTok{"7"}\NormalTok{,}\StringTok{"8"}\NormalTok{,}\StringTok{"0"}\NormalTok{,}\StringTok{""}\NormalTok{) }
+\NormalTok{CROPREPVAL =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"100"}\NormalTok{,}\StringTok{"100"}\NormalTok{,}\StringTok{"1000"}\NormalTok{,}\StringTok{"1000"}\NormalTok{,}\StringTok{"1000000"}\NormalTok{,}\StringTok{"1000000"}\NormalTok{,}\StringTok{"1000000000"}\NormalTok{,}\StringTok{"1000000000"}\NormalTok{,}\StringTok{"1"}\NormalTok{,}\StringTok{"0"}\NormalTok{,}\StringTok{"0"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"10"}\NormalTok{,}\StringTok{"0"}\NormalTok{)}
+
+
+\CommentTok{#merges the new replacement values with the original dataframe}
+\NormalTok{propexpdf =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(PROPDMGEXP, PROPREPVAL)}
+\NormalTok{storm2 <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(}\DataTypeTok{x=}\NormalTok{storm, }\DataTypeTok{y=}\NormalTok{propexpdf, }\DataTypeTok{by =} \StringTok{"PROPDMGEXP"}\NormalTok{, }\DataTypeTok{all.x=}\OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{cropexpdf =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(CROPDMGEXP, CROPREPVAL)}
+\NormalTok{storm3 <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(}\DataTypeTok{x=}\NormalTok{storm2, }\DataTypeTok{y=}\NormalTok{cropexpdf, }\DataTypeTok{by =} \StringTok{"CROPDMGEXP"}\NormalTok{, }\DataTypeTok{all.x=}\OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{#creates another backup prior to plotting}
+\KeywordTok{write.csv}\NormalTok{(storm3,}\StringTok{'storm3.csv'}\NormalTok{)}
+\NormalTok{storm3<-}\KeywordTok{read.csv}\NormalTok{(}\StringTok{"storm3.csv"}\NormalTok{,}\DataTypeTok{row.names=}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{stringsAsFactors =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Results}\label{results}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Aggregate and summarizes the top the 5 events with most fatalities}
+
+\NormalTok{  deaths <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(FATALITIES}\OperatorTok{~}\NormalTok{EVTYPE, storm3, sum)}
+\NormalTok{  deaths <-}\StringTok{ }\NormalTok{deaths[}\KeywordTok{with}\NormalTok{(deaths, }\KeywordTok{order}\NormalTok{(}\OperatorTok{-}\NormalTok{FATALITIES)), ]}
+\NormalTok{  deaths <-}\StringTok{ }\NormalTok{deaths[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,]}
+  \KeywordTok{summary}\NormalTok{(deaths)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             EVTYPE    FATALITIES  
+##  EXCESSIVE HEAT:1   Min.   : 815  
+##  FLASH FLOOD   :1   1st Qu.: 937  
+##  HEAT          :1   Median : 974  
+##  LIGHTNING     :1   Mean   :2052  
+##  TORNADO       :1   3rd Qu.:1903  
+##   COASTAL FLOOD:0   Max.   :5633  
+##  (Other)       :0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{head}\NormalTok{(deaths)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             EVTYPE FATALITIES
+## 826        TORNADO       5633
+## 129 EXCESSIVE HEAT       1903
+## 152    FLASH FLOOD        974
+## 274           HEAT        937
+## 461      LIGHTNING        815
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{png}\NormalTok{(}\StringTok{"plot1.png"}\NormalTok{, }\DataTypeTok{width=}\DecValTok{800}\NormalTok{, }\DataTypeTok{height=}\DecValTok{600}\NormalTok{)}
+\NormalTok{  plot1 <-}\StringTok{ }\KeywordTok{barplot}\NormalTok{(deaths}\OperatorTok{$}\NormalTok{FATALITIES, }\DataTypeTok{names =}\NormalTok{ deaths}\OperatorTok{$}\NormalTok{EVTYPE, }\DataTypeTok{xlab =} \StringTok{"Events"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Fatalities"}\NormalTok{, }\DataTypeTok{main =} \StringTok{"Deaths by Event Type"}\NormalTok{)}
+  \KeywordTok{dev.off}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  img1 <-}\StringTok{ }\KeywordTok{readPNG}\NormalTok{(}\StringTok{"./plot1.png"}\NormalTok{)}
+\NormalTok{  grid}\OperatorTok{::}\KeywordTok{grid.raster}\NormalTok{(img1)}
+  
+\CommentTok{# Aggregate and summarizes the top the 5 events with most injuries  }
+  
+\NormalTok{  injur <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(INJURIES}\OperatorTok{~}\NormalTok{EVTYPE, storm3, sum)}
+\NormalTok{  injur <-}\StringTok{ }\NormalTok{injur[}\KeywordTok{with}\NormalTok{(injur, }\KeywordTok{order}\NormalTok{(}\OperatorTok{-}\NormalTok{INJURIES)), ]}
+\NormalTok{  injur <-}\StringTok{ }\NormalTok{injur[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,]}
+  \KeywordTok{summary}\NormalTok{(injur)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             EVTYPE     INJURIES    
+##  EXCESSIVE HEAT:1   Min.   : 5229  
+##  FLOOD         :1   1st Qu.: 6525  
+##  LIGHTNING     :1   Median : 6789  
+##  TORNADO       :1   Mean   :23369  
+##  TSTM WIND     :1   3rd Qu.: 6957  
+##   COASTAL FLOOD:0   Max.   :91346  
+##  (Other)       :0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{head}\NormalTok{(injur)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             EVTYPE INJURIES
+## 826        TORNADO    91346
+## 848      TSTM WIND     6957
+## 169          FLOOD     6789
+## 129 EXCESSIVE HEAT     6525
+## 461      LIGHTNING     5229
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{png}\NormalTok{(}\StringTok{"plot2.png"}\NormalTok{, }\DataTypeTok{width=}\DecValTok{800}\NormalTok{, }\DataTypeTok{height=}\DecValTok{600}\NormalTok{)}
+\NormalTok{  plot2 <-}\StringTok{ }\KeywordTok{barplot}\NormalTok{(injur}\OperatorTok{$}\NormalTok{INJURIES, }\DataTypeTok{names =}\NormalTok{ injur}\OperatorTok{$}\NormalTok{EVTYPE, }\DataTypeTok{xlab =} \StringTok{"Events"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Injuries"}\NormalTok{, }\DataTypeTok{main =} \StringTok{"Injuries by Event Type"}\NormalTok{)}
+  \KeywordTok{dev.off}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  img2 <-}\StringTok{ }\KeywordTok{readPNG}\NormalTok{(}\StringTok{"./plot2.png"}\NormalTok{)}
+\NormalTok{  grid}\OperatorTok{::}\KeywordTok{grid.raster}\NormalTok{(img2)}
+  
+\CommentTok{# Set factors as numeric  }
+\NormalTok{storm3[,}\StringTok{"CROPDMG"}\NormalTok{] <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(storm3[,}\StringTok{"CROPDMG"}\NormalTok{]))}
+\NormalTok{storm3[,}\StringTok{"CROPREPVAL"}\NormalTok{] <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(storm3[,}\StringTok{"CROPREPVAL"}\NormalTok{]))}
+\NormalTok{storm3[,}\StringTok{"PROPDMG"}\NormalTok{] <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(storm3[,}\StringTok{"PROPDMG"}\NormalTok{]))}
+\NormalTok{storm3[,}\StringTok{"PROPREPVAL"}\NormalTok{] <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(storm3[,}\StringTok{"PROPREPVAL"}\NormalTok{]))}
+
+\CommentTok{# Mutates the dataframe by using the exponents for crop and property damage, then adds the two to determine economic cost. }
+\NormalTok{storm4 <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(storm3, }\DataTypeTok{CROPTOTAL =}\NormalTok{ CROPREPVAL }\OperatorTok{*}\StringTok{ }\NormalTok{CROPDMG)}
+\NormalTok{storm5 <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(storm4, }\DataTypeTok{PROPTOTAL =}\NormalTok{ PROPREPVAL }\OperatorTok{*}\StringTok{ }\NormalTok{PROPDMG)}
+\NormalTok{storm6 <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(storm5, }\DataTypeTok{COSTTOTAL =}\NormalTok{ CROPTOTAL }\OperatorTok{+}\StringTok{ }\NormalTok{PROPTOTAL)}
+
+\NormalTok{cost <-}\StringTok{ }\KeywordTok{aggregate}\NormalTok{(COSTTOTAL}\OperatorTok{~}\NormalTok{EVTYPE, storm6, sum)}
+\NormalTok{cost <-}\StringTok{ }\NormalTok{cost[}\KeywordTok{with}\NormalTok{(cost, }\KeywordTok{order}\NormalTok{(}\OperatorTok{-}\NormalTok{COSTTOTAL)), ]}
+\NormalTok{cost <-}\StringTok{ }\NormalTok{cost[}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,]}
+\KeywordTok{summary}\NormalTok{(cost)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                EVTYPE    COSTTOTAL        
+##  FLOOD            :1   Min.   :1.876e+10  
+##  HAIL             :1   1st Qu.:4.332e+10  
+##  HURRICANE/TYPHOON:1   Median :5.735e+10  
+##  STORM SURGE      :1   Mean   :6.832e+10  
+##  TORNADO          :1   3rd Qu.:7.185e+10  
+##   COASTAL FLOOD   :0   Max.   :1.503e+11  
+##  (Other)          :0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(cost)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                EVTYPE    COSTTOTAL
+## 169             FLOOD 150319131250
+## 408 HURRICANE/TYPHOON  71853560800
+## 826           TORNADO  57352117607
+## 662       STORM SURGE  43323541000
+## 243              HAIL  18758224527
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{png}\NormalTok{(}\StringTok{"plot3.png"}\NormalTok{, }\DataTypeTok{width=}\DecValTok{800}\NormalTok{, }\DataTypeTok{height=}\DecValTok{600}\NormalTok{)}
+\NormalTok{plot3 <-}\StringTok{ }\KeywordTok{barplot}\NormalTok{(cost}\OperatorTok{$}\NormalTok{COSTTOTAL, }\DataTypeTok{names =}\NormalTok{ cost}\OperatorTok{$}\NormalTok{EVTYPE, }\DataTypeTok{xlab =} \StringTok{"Type of Event"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Total Economic Damage"}\NormalTok{, }\DataTypeTok{main =} \StringTok{"Total Damage Costs by Event Type"}\NormalTok{)}
+\KeywordTok{dev.off}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  img3 <-}\StringTok{ }\KeywordTok{readPNG}\NormalTok{(}\StringTok{"./plot3.png"}\NormalTok{)}
+\NormalTok{  grid}\OperatorTok{::}\KeywordTok{grid.raster}\NormalTok{(img3)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{RepResCourseProj2_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+
+\end{document}
